@@ -29,9 +29,16 @@ export default async () => {
       // Change to match your data model and seeding needs
       //
       data.map(async (data: Prisma.UserExampleCreateArgs['data']) => {
-        const record = await db.userExample.create({ data })
+        const record = await db.userExample.createMany({
+          data,
+          skipDuplicates: true,
+        })
         console.log(record)
       })
+      // data.map(async (data: Prisma.UserExampleCreateArgs['data']) => {
+      //   const record = await db.userExample.create({ data })
+      //   console.log(record)
+      // })
     )
 
     // If using dbAuth and seeding users, you'll need to add a `hashedPassword`

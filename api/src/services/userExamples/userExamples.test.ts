@@ -28,6 +28,7 @@ describe('userExamples', () => {
       const result = await userExample({ id: scenario.userExample.one.id })
 
       expect(result).toEqual(scenario.userExample.one)
+      expect(result).toEqual('broken test!')
     }
   )
 
